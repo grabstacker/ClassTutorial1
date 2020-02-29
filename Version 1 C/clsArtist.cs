@@ -5,43 +5,43 @@ namespace Version_1_C
     [Serializable()] 
     public class clsArtist
     {
-        private string name;
-        private string speciality;
-        private string phone;
+        private string _name;
+        private string _speciality;
+        private string _phone;
         
-        private decimal theTotalValue;
+        private decimal _TotalValue;
 
-        private clsWorksList theWorksList;
-        private clsArtistList theArtistList;
+        private clsWorksList _WorksList;
+        private clsArtistList _ArtistList;
         
-        private static frmArtist artistDialog = new frmArtist();
-        private byte sortOrder;
+        private static frmArtist _artistDialog = new frmArtist();
+        private byte _sortOrder;
 
         public clsArtist(clsArtistList prArtistList)
         {
-            theWorksList = new clsWorksList();
-            theArtistList = prArtistList;
+            _WorksList = new clsWorksList();
+            _ArtistList = prArtistList;
             EditDetails();
         }
         
         public void EditDetails()
         {
-            artistDialog.SetDetails(name, speciality, phone, sortOrder, theWorksList, theArtistList);
-            if (artistDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            _artistDialog.SetDetails(_name, _speciality, _phone, _sortOrder, _WorksList, _ArtistList);
+            if (_artistDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                artistDialog.GetDetails(ref name, ref speciality, ref phone, ref sortOrder);
-                theTotalValue = theWorksList.GetTotalValue();
+                _artistDialog.GetDetails(ref _name, ref _speciality, ref _phone, ref _sortOrder);
+                _TotalValue = _WorksList.GetTotalValue();
             }
         }
 
         public string GetKey()
         {
-            return name;
+            return _name;
         }
 
         public decimal GetWorksValue()
         {
-            return theTotalValue;
+            return _TotalValue;
         }
     }
 }
