@@ -6,8 +6,8 @@ namespace Version_1_C
     [Serializable()] 
     public class clsSculpture : clsWork
     {
-        private float theWeight;
-        private string theMaterial;
+        private float _weight;
+        private string _material;
 
         public override void EditDetails()
         {

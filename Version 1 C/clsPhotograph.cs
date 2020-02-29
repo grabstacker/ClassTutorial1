@@ -6,9 +6,9 @@ namespace Version_1_C
     [Serializable()]
     public class clsPhotograph : clsWork
     {
-        private float theWidth;
-        private float theHeight;
-        private string theType;
+        private float _width;
+        private float _height;
+        private string _type;
 
         public override void EditDetails()
         {
