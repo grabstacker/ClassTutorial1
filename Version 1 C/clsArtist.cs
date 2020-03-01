@@ -8,14 +8,14 @@ namespace Version_1_C
         private string _name;
         private string _speciality;
         private string _phone;
-        
-        private decimal _TotalValue;
+   
+        private decimal _totalValue;
 
         private clsWorksList _WorksList;
         private clsArtistList _ArtistList;
         
         private static frmArtist _artistDialog = new frmArtist();
-        private byte _sortOrder;
+      
 
         public clsArtist(clsArtistList prArtistList)
         {
@@ -26,11 +26,12 @@ namespace Version_1_C
         
         public void EditDetails()
         {
-            _artistDialog.SetDetails(_name, _speciality, _phone, _sortOrder, _WorksList, _ArtistList);
+            _artistDialog.SetDetails(_name, _speciality, _phone, _WorksList.SortOrder, _WorksList, _ArtistList);
             if (_artistDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                _artistDialog.GetDetails(ref _name, ref _speciality, ref _phone, ref _sortOrder);
-                _TotalValue = _WorksList.GetTotalValue();
+               
+                _artistDialog.GetDetails(ref _name, ref _speciality, ref _phone, _WorksList.SortOrder);
+                _totalValue = _WorksList.GetTotalValue();
             }
         }
 
@@ -41,7 +42,7 @@ namespace Version_1_C
 
         public decimal GetWorksValue()
         {
-            return _TotalValue;
+            return _totalValue;
         }
     }
 }
